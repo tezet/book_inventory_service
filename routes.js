@@ -25,7 +25,7 @@ module.exports = function (stockRepository) {
                         res.format({
                    
                         'text/html': function(){
-                            res.send('<p>Copies left:' + result);
+                            res.send('<div>Copies left:' + result +'</div>');
                         },
 
                         'application/json': function(){

@@ -21,7 +21,25 @@ module.exports = function (stockRepository) {
                 getCount(req.params.isbn).
                 then(function (result) {
                     if (result) {
-                        res.json({count: result});
+
+                        res.format({
+                   
+                        'text/html': function(){
+                            res.send('<p>Copies left:' + result);
+                        },
+
+                        'application/json': function(){
+                            res.send({count: result});
+                        },
+
+                        'default': function() {
+                            // log the request and respond with 406
+                            res.status(406).send('Not Acceptable');
+                        }
+                        });
+
+
+                        //res.json({count: result});
                     } else {
                         next();
                     }

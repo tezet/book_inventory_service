@@ -5,7 +5,7 @@ var configurator = heroin(process.env.HEROKU_API_TOKEN);
 var base = { 
   region: 'eu',
   stack: 'cedar-14',
-  config_vars: { MONGODB_URI: process.env.MONGODB_URI, NODE_ENV: 'production'},
+  config_vars: { MONGODB_URI: process.env.MONGODB_URI},
   addons: {},
   collaborators: [ 'tomasz.zajac@gmail.com' ],
   features:
